@@ -1,4 +1,3 @@
-
 class Persona():
     tipo= "Mamifero"
     def __init__(self ):
@@ -79,7 +78,7 @@ class Medico(Empleado_Hospital):
     def verEspecialidad(self):
         return self.__especialidad
 
-class Sistema:
+class Sistema():
     def __init__(self):
         self.__lista_pacientes = []
     
@@ -99,55 +98,61 @@ class Sistema:
 
 def main():
     sis = Sistema()
-    # Probemos lo que llevamos programado
     while True:
-        # TAREA: HACER EL MENÚ
-        opcion = int(input('Ingrese 0 para salir, 1 para ingresar nuevo paciente, 2 para ver paciente: '))
+        print('\n--- Menú del Sistema Hospitalario ---')
+        print('1. Ingresar nuevo paciente')
+        print('2. Ver datos de un paciente')
+        print('3. Ver número total de pacientes')
+        print('0. Salir')
+        
+        try:
+            opcion = int(input('Seleccione una opción: '))
+        except ValueError:
+            print('Por favor, ingrese un número válido.')
+            continue
         
         if opcion == 1:
             # Ingreso pacientes
-            print('A continuación se solicitarán los datos ...')
-            
-            # 1. Se solicitan los datos
+            print('A continuación se solicitarán los datos del paciente...')
             nombre = input('Ingrese el nombre: ')
             cedula = int(input('Ingrese la cédula: '))
             genero = input('Ingrese el género: ')
             servicio = input('Ingrese el servicio: ')
             
-            # 2. Se crea un objeto Paciente
             pac = Paciente()
-            
-            # Como el paciente está vacío debo ingresarle la información
+            pac.asignarNombre(nombre)
             pac.asignarCedula(cedula)
             pac.asignarGenero(genero)
-            pac.asignarNombre(nombre)
             pac.asignarServicio(servicio)
             
-            # 3. Se almacena en la lista que está dentro de la clase Sistema
             sis.ingresarPaciente(pac)
+            print("Paciente ingresado exitosamente.")
         
         elif opcion == 2:
-            # 1. Solicito la cédula que quiero buscar
-            c = int(input('Ingrese la cédula a buscar: '))
-            
-            # Le pido al sistema que me devuelva en la variable `p` al paciente que tenga
-            # la cédula `c` en la lista
+            # Ver datos de un paciente
+            c = int(input('Ingrese la cédula del paciente a buscar: '))
             p = sis.verDatosPaciente(c)
-            
-            # 2. Si encuentro al paciente imprimo los datos
-            print("Nombre: " + p.verNombre())
-            print("Cédula: " + str(p.verCedula()))
-            print("Género: " + p.verGenero())
-            print("Servicio: " + p.verServicio())
+            if p:
+                print("Nombre: " + p.verNombre())
+                print("Cédula: " + str(p.verCedula()))
+                print("Género: " + p.verGenero())
+                print("Servicio: " + p.verServicio())
+            else:
+                print("Paciente no encontrado.")
         
-        elif opcion != 0:
-            continue
-        else:
+        elif opcion == 3:
+            # Ver número total de pacientes
+            sis.verNumeroPacientes()
+        
+        elif opcion == 0:
+            print("Saliendo del sistema. ¡Hasta luego!")
             break
+        
+        else:
+            print("Opción no válida. Intente de nuevo.")
 
 # Acá el Python descubre cuál es la función principal
 if __name__ == '__main__':
     main()
 
 
-          
