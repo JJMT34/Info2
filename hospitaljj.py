@@ -78,15 +78,29 @@ class Medico(Empleado_Hospital):
     def verEspecialidad(self):
         return self.__especialidad
 
-class Sistema():
+class Sistema(object):
     def __init__(self):
         self.__lista_pacientes = []
     
+    def verPaciente(self,cedula):
+        encontrado = False
+        for p in self.__lista_pacientes:
+            if cedula == p.verCedula():
+                encontrado = True
+                break
+        return encontrado
+
     def ingresarPaciente(self, pac):
+        if self.verPaciente(pac.verCedula()):
+            return False
         self.__lista_pacientes.append(pac)
+        return True
     
     def verDatosPaciente(self, c):
         # Voy a buscar paciente por paciente
+        if self.verificarPaciente(c) == False:
+            return None
+        
         for p in self.__lista_pacientes:
             # Por cada paciente de la lista, le digo al paciente que me
             # retorne la cédula y la comparo con la ingresada por teclado
@@ -125,8 +139,12 @@ def main():
             pac.asignarGenero(genero)
             pac.asignarServicio(servicio)
             
-            sis.ingresarPaciente(pac)
-            print("Paciente ingresado exitosamente.")
+            resultado = sis.ingresarPaciente(pac)
+
+            if resultado == False: 
+                print("El paciente ya existe")
+            else:
+                print("Paciente ingresado exitosamente.")
         
         elif opcion == 2:
             # Ver datos de un paciente
