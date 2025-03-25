@@ -79,214 +79,75 @@ class Medico(Empleado_Hospital):
     def verEspecialidad(self):
         return self.__especialidad
 
-# listapacientes={}
-
-# def menupacientes():
-#     while True:
-#         print('1. Ingresar un paciente')
-#         print('2. Ver lista de pacientes')
-#         print('3. Salir')
-#         opcion = int(input('Ingrese una opción: '))
-
-#         if opcion == 1:
-#             p1 = Paciente()
-#             p1.asignarNombre(input('Ingrese el nombre del paciente: '))
-#             p1.asignarCedula(input('Ingrese la cedula del paciente: '))
-#             p1.asignarGenero(input('Ingrese el genero del paciente: '))
-#             p1.asignarServicio(input('Ingrese el servicio que requiere el paciente: '))
-#             listapacientes[p1.verCedula()] = p1
-
-#         elif opcion == 2:
-#             for cedula, paciente in listapacientes.items():
-#                 print(f'Nombre: {paciente.verNombre()}')
-#                 print(f'Cedula: {paciente.verCedula()}')
-#                 print(f'Genero: {paciente.verGenero()}')
-#                 print(f'Servicio: {paciente.verServicio()}')
-#                 print()
-
-#         elif opcion == 3:
-#             print('Saliendo...')
-#             break
-
-
-# listaempleados={}
-
-# def menuempleados():
-#     while True:
-#         print('1. Ingresar un empleado')
-#         print('2. Ver lista de empleados')
-#         print('3. Salir')
-#         opcion = int(input('Ingrese una opción: '))
-
-#         if opcion == 1:
-#             e1 = Empleado_Hospital()
-#             e1.asignarNombre(input('Ingrese el nombre del empleado: '))
-#             e1.asignarCedula(input('Ingrese la cedula del empleado: '))
-#             e1.asignarGenero(input('Ingrese el genero del empleado: '))
-#             e1.asignarTurno(input('Ingrese el turno del empleado: '))
-#             listaempleados[e1.verCedula()] = e1
-
-#         elif opcion == 2:
-#             for cedula, empleado in listaempleados.items():
-#                 print(f'Nombre: {empleado.verNombre()}')
-#                 print(f'Cedula: {empleado.verCedula()}')
-#                 print(f'Genero: {empleado.verGenero()}')
-#                 print(f'Turno: {empleado.verturno()}')
-#                 print()
-
-#         elif opcion == 3:
-#             print('Saliendo...')
-#             break
-
-# listaenfermeras={}
-
-# def menuenfermeras():
-#     while True:
-#         print('1. Ingresar una enfermera')
-#         print('2. Ver lista de enfermeras') 
-#         print('3. Salir')
-
-#         opcion = int(input('Ingrese una opción: '))
-
-#         if opcion == 1:
-#             en1 = Enfermera()
-#             en1.asignarNombre(input('Ingrese el nombre de la enfermera: '))
-#             en1.asignarCedula(input('Ingrese la cedula de la enfermera: '))
-#             en1.asignarGenero(input('Ingrese el genero de la enfermera: '))
-#             en1.asignarTurno(input('Ingrese el turno de la enfermera: '))
-#             en1.asignarRango(input('Ingrese el rango de la enfermera: '))
-#             listaenfermeras[en1.verCedula()] = en1
-
-#         elif opcion == 2:
-#             for cedula, enfermera in listaenfermeras.items():
-#                 print(f'Nombre: {enfermera.verNombre()}')
-#                 print(f'Cedula: {enfermera.verCedula()}')
-#                 print(f'Genero: {enfermera.verGenero()}')
-#                 print(f'Turno: {enfermera.verturno()}')
-#                 print(f'Rango: {enfermera.verRango()}')
-
-#         elif opcion == 3:
-#             print('Saliendo...')    
-#             break
-
-
-# listamedicos={}
-
-# def menumedicos():
-#     while True:
-#         print('1. Ingresar un medico')
-#         print('2. Ver lista de medicos')
-#         print('3. Salir')
-
-#         opcion = int(input('Ingrese una opción: '))
-
-#         if opcion == 1:
-#             m1 = Medico()
-#             m1.asignarNombre(input('Ingrese el nombre del medico: '))
-#             m1.asignarCedula(input('Ingrese la cedula del medico: '))
-#             m1.asignarGenero(input('Ingrese el genero del medico: '))
-#             m1.asignarTurno(input('Ingrese el turno del medico: '))
-#             m1.asignarEspecialidad(input('Ingrese la especialidad del medico: '))
-#             listamedicos[m1.verCedula()] = m1   
-
-#         elif opcion == 2:
-#             for cedula, medico in listamedicos.items():
-#                 print(f'Nombre: {medico.verNombre()}')
-#                 print(f'Cedula: {medico.verCedula()}')
-#                 print(f'Genero: {medico.verGenero()}')
-#                 print(f'Turno: {medico.verturno()}')
-#                 print(f'Especialidad: {medico.verEspecialidad()}')
-
-#         elif opcion == 3:
-#             print('Saliendo...')
-#             break
-
-# def menuhospital():
-#     while True:
-#         print('1. Ver menu de pacientes')
-#         print('2. Ver menu de empleados')
-#         print('3. Ver menu de enfermeras')
-#         print('4. Ver menu de medicos')
-#         print('5. Salir')
-
-#         opcion = int(input('Ingrese una opción: '))
-
-#         if opcion == 1:
-#             menupacientes()
-#         elif opcion == 2: 
-#             menuempleados()
-#         elif opcion == 3:
-#             menuenfermeras()
-#         elif opcion == 4:
-#             menumedicos()
-#         elif opcion == 5:  
-#             print('Saliendo...')
-#             break
-
-# menuhospital()
-
 class Sistema:
     def __init__(self):
-        # Como voy a tener uno o muchos pacientes los manejaré en una lista
         self.__lista_pacientes = []
-        # Esta variable siempre dependerá del tamaño de la lista
-        # por lo que no se podrá modificar con un método asignar
-        self.__numero_pacientes = len(self.__lista_pacientes)
-
-    def ingresarPaciente(self):
-        # 1. Solicito los datos por teclado
-        nombre = input('Ingrese el nombre: ')
-        cedula = int(input('Ingrese la cédula: '))
-        genero = input('Ingrese el género: ')
-        servicio = input('Ingrese el servicio: ')
-
-        # 2. Creo el objeto Paciente y le asigno los datos
-        p = Paciente()
-        p.asignarNombre(nombre)
-        p.asignarCedula(cedula)
-        p.asignarGenero(genero)
-        p.asignarServicio(servicio)
-
-        # 3. Guardo el paciente en la lista
-        self.__lista_pacientes.append(p)
-
-        # 4. Actualizo la cantidad de pacientes en el sistema
-        self.__numero_pacientes = len(self.__lista_pacientes)
-
+    
+    def ingresarPaciente(self, pac):
+        self.__lista_pacientes.append(pac)
+    
+    def verDatosPaciente(self, c):
+        # Voy a buscar paciente por paciente
+        for p in self.__lista_pacientes:
+            # Por cada paciente de la lista, le digo al paciente que me
+            # retorne la cédula y la comparo con la ingresada por teclado
+            if c == p.verCedula():
+                return p  # Si encuentro el paciente lo retorno
+    
     def verNumeroPacientes(self):
-        return self.__numero_pacientes
+        print('En el sistema hay: ' + str(len(self.__lista_pacientes)) + ' pacientes')
 
-    def verDatosPaciente(self):
-        cedula = int(input('Ingrese la cédula a buscar: '))
+def main():
+    sis = Sistema()
+    # Probemos lo que llevamos programado
+    while True:
+        # TAREA: HACER EL MENÚ
+        opcion = int(input('Ingrese 0 para salir, 1 para ingresar nuevo paciente, 2 para ver paciente: '))
         
-        # Buscar en la lista de pacientes
-        for paciente in self.__lista_pacientes:
-            if cedula == paciente.verCedula():
-                # Si coincide la cédula del paciente con la buscada, muestro los datos
-                print('Nombre: ' + paciente.verNombre())
-                print('Cédula: ' + str(paciente.verCedula()))
-                print('Género: ' + paciente.verGenero())
-                print('Servicio: ' + paciente.verServicio())
+        if opcion == 1:
+            # Ingreso pacientes
+            print('A continuación se solicitarán los datos ...')
+            
+            # 1. Se solicitan los datos
+            nombre = input('Ingrese el nombre: ')
+            cedula = int(input('Ingrese la cédula: '))
+            genero = input('Ingrese el género: ')
+            servicio = input('Ingrese el servicio: ')
+            
+            # 2. Se crea un objeto Paciente
+            pac = Paciente()
+            
+            # Como el paciente está vacío debo ingresarle la información
+            pac.asignarCedula(cedula)
+            pac.asignarGenero(genero)
+            pac.asignarNombre(nombre)
+            pac.asignarServicio(servicio)
+            
+            # 3. Se almacena en la lista que está dentro de la clase Sistema
+            sis.ingresarPaciente(pac)
+        
+        elif opcion == 2:
+            # 1. Solicito la cédula que quiero buscar
+            c = int(input('Ingrese la cédula a buscar: '))
+            
+            # Le pido al sistema que me devuelva en la variable `p` al paciente que tenga
+            # la cédula `c` en la lista
+            p = sis.verDatosPaciente(c)
+            
+            # 2. Si encuentro al paciente imprimo los datos
+            print("Nombre: " + p.verNombre())
+            print("Cédula: " + str(p.verCedula()))
+            print("Género: " + p.verGenero())
+            print("Servicio: " + p.verServicio())
+        
+        elif opcion != 0:
+            continue
+        else:
+            break
 
-# Cuando creamos las clases podemos generar objetos de esas clases y con esos objetos
-# acceder a las funcionalidades o métodos
-mi_sistema = Sistema()  # Se crea una instancia de la clase Sistema
-
-# Ciclo infinito
-while True:
-    opcion = int(input('1. Nuevo paciente - 2. Número de Pacientes - 3. Datos Paciente - 4. Salir: '))
-
-    if opcion == 1:
-        mi_sistema.ingresarPaciente()
-    elif opcion == 2:
-        print('Ahora hay: ' + str(mi_sistema.verNumeroPacientes()))
-    elif opcion == 3:
-        mi_sistema.verDatosPaciente()
-    elif opcion == 4:
-        break
-    else:
-        print('Opción inválida')
-
+# Acá el Python descubre cuál es la función principal
+if __name__ == '__main__':
+    main()
 
 
           
